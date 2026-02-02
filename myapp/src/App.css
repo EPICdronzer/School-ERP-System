@@ -1,0 +1,17 @@
+.login_comp{
+    background-image: url("./assets/classroom.avif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.glass_card{
+    background: rgba(255,255,255,0);
+    backdrop-filter:blur(10px);
+    height: 100vh;
+    width: 100%;
+    /* -webkit-backdrop-filter: */
+}
