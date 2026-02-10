@@ -1,19 +1,30 @@
+import LoginData from "../localStorage/LoginData";
+
 function LoginForm(){
+  const { formData, handleChange, handleLogin } = LoginData();
     return(
         <>
-        <form className="flex gap-4 flex-col">
+        <form onSubmit={handleLogin} className="flex gap-4 flex-col">
           <div className="flex flex-col gap-3">
             <input
+              name="email"
               placeholder="Username/Email"
+              value={formData.email}
+              onChange={handleChange}
               className="bg-white shadow-md rounded-full p-2 px-4 text-sm sm:text-base
               focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
+
             <input
+              name="password"
               placeholder="Password"
               type="password"
+              value={formData.password}
+              onChange={handleChange}
               className="bg-white shadow-md rounded-full p-2 px-4 text-sm sm:text-base
               focus:outline-none focus:ring-2 focus:ring-orange-400 transition"
             />
+
           </div>
 
           <div className="flex gap-2 items-center text-gray-700">
