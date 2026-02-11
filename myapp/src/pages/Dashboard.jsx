@@ -11,6 +11,7 @@ import { PiStudentFill } from "react-icons/pi";
 import { MdPeopleAlt } from "react-icons/md";
 import FinanceBarChart from "../components/FinanceBarChart";
 import IncomeDonutChart from "../components/IncomeDonutChart";
+import StudentAttendanceCard from "../components/StudentAttendanceCard";
 
 function Dashboard(){
     const [collapsed, setCollapsed] = useState(false);
@@ -169,13 +170,139 @@ function Dashboard(){
         </div>
 
         <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
-          <IncomeDonutChart/>
+          <IncomeDonutChart dataTitle="Income June 2024" arrayData={[{ name: "Donation", value: 45234, color: "#22c55e" },
+                                                                      { name: "Rent", value: 18234, color: "#facc15" },
+                                                                      { name: "Miscellaneous", value: 30234, color: "#4fd1c5" },
+                                                                      { name: "Book Sale", value: 25234, color: "#d8b4fe" },
+                                                                      { name: "Uniform Sale", value: 59234, color: "#a8a29e" },]}/>
         </div>
-        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200"></div>
-        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200"></div>
-        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200"></div>
-        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200"></div>
-        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200"></div>
+        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
+          <IncomeDonutChart dataTitle="Expense June 2024" arrayData={[
+                                                                      { name: "Telephone Bill", value: 18000, color: "#a78bfa" },   
+                                                                      { name: "Flower", value: 12000, color: "#fde68a" },           
+                                                                      { name: "Electricity Bill", value: 22000, color: "#a8a29e" },  
+                                                                      { name: "Stationary", value: 16000, color: "#22c55e" },        
+                                                                      { name: "Miscellaneous", value: 20000, color: "#f87171" },     
+                                                                    ]}/>
+        
+        </div>
+        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
+          <StudentAttendanceCard title="Student Attendance" totalStudents={5000} attendance={[{
+                                                            label: "PRESENT",
+                                                            count: 4396,
+                                                            color: "bg-green-500",
+                                                            percent: 87.92,
+                                                          },
+                                                          {
+                                                            label: "LATE",
+                                                            count: 0,
+                                                            color: "bg-gray-300",
+                                                            percent: 0.0,
+                                                          },
+                                                          {
+                                                            label: "ABSENT",
+                                                            count: 609,
+                                                            color: "bg-red-500",
+                                                            percent: 12.18,
+                                                          },
+                                                          {
+                                                            label: "HALF DAY",
+                                                            count: 5,
+                                                            color: "bg-yellow-400",
+                                                            percent: 0.1,
+                                                          },]}/>
+        </div>
+        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
+          <StudentAttendanceCard title="Library Overview"
+totalStudents={36}
+attendance={[
+  {
+    label: "DUE FOR RETURNED",
+    count: 5,
+    color: "bg-red-500",
+    percent: 13.8,
+  },
+  {
+    label: "RETURNED",
+    count: 31,
+    color: "bg-green-500",
+    percent: 86.11,
+  },
+  {
+    label: "ISSUED",
+    count: 36,
+    color: "bg-yellow-400",
+    percent: 8.0,
+  },
+  {
+    label: "AVAILABLE",
+    count: 414,
+    color: "bg-cyan-500",
+    percent: 92.0,
+  },
+]}/>
+        </div>
+        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
+          <StudentAttendanceCard title="Fees Overview"
+totalStudents={5000}
+attendance={[
+  {
+    label: "UNPAID",
+    count: 1000,
+    color: "bg-red-500",
+    percent: 87.92,
+  },
+  {
+    label: "PARTIAL",
+    count: 550,
+    color: "bg-yellow-400",
+    percent: 12.18,
+  },
+  {
+    label: "PAID",
+    count: 250,
+    color: "bg-green-500",
+    percent: 0.1,
+  },
+]}/>
+        </div>
+        <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
+          <StudentAttendanceCard title="Enquiry Overview"
+totalStudents={10}
+attendance={[
+  {
+    label: "ACTIVE",
+    count: 5,
+    color: "bg-cyan-500",
+    percent: 50.0,
+  },
+  {
+    label: "WON",
+    count: 2,
+    color: "bg-green-500",
+    percent: 20.0,
+  },
+  {
+    label: "PASSIVE",
+    count: 1,
+    color: "bg-yellow-400",
+    percent: 10.0,
+  },
+  {
+    label: "LOSS",
+    count: 1,
+    color: "bg-red-500",
+    percent: 10.0,
+  },
+  {
+    label: "DEAD",
+    count: 1,
+    color: "bg-gray-400",
+    percent: 10.0,
+  },
+]}
+/>
+        </div>
         <div className="col-span-6 row-span-4 w-full h-full shadow-xl border-2 border-gray-200 rounded-md"></div>
       </div>
     </Layout>

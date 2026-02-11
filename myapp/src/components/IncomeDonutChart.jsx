@@ -7,13 +7,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  { name: "Donation", value: 45234, color: "#22c55e" },
-  { name: "Rent", value: 18234, color: "#facc15" },
-  { name: "Miscellaneous", value: 30234, color: "#4fd1c5" },
-  { name: "Book Sale", value: 25234, color: "#d8b4fe" },
-  { name: "Uniform Sale", value: 59234, color: "#a8a29e" },
-];
+
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -27,10 +21,11 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-export default function IncomeDonutChart() {
+export default function IncomeDonutChart(props) {
+  const data = [...props.arrayData];
   return (
-    <div className="w-full h-[420px] bg-white p-5 rounded-xl shadow">
-      <h2 className="text-xl font-semibold mb-4">Income June 2024</h2>
+    <div className="w-full h-[420px] bg-white p-4 rounded-xl shadow">
+      <div className="text-lg font-semibold mb-4">{props.dataTitle}</div>
 
       <ResponsiveContainer width="100%" height="85%">
         <PieChart>
@@ -38,24 +33,29 @@ export default function IncomeDonutChart() {
 
           <Legend
             verticalAlign="top"
-            align="left"
+            align="center"
             iconType="square"
-            wrapperStyle={{ paddingBottom: "10px" }}
+            wrapperStyle={{ paddingBottom: "30px",fontSize:"14px" }}
           />
 
           <Pie
-            data={data}
-            dataKey="value"
-            nameKey="name"
-            innerRadius={70}
-            outerRadius={110}
-            paddingAngle={3}
-            cornerRadius={5}
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
-            ))}
-          </Pie>
+          data={data}
+          dataKey="value"
+          nameKey="name"
+          innerRadius={50}
+          outerRadius={130}
+          paddingAngle={3}
+          cornerRadius={5}
+          startAngle={180}   // start from left
+          endAngle={0}       // end at right (makes half circle)
+          cx="50%"           // keep centered horizontally
+          cy="70%"           // push it down so half fits nicely
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.color} />
+          ))}
+        </Pie>
+
         </PieChart>
       </ResponsiveContainer>
     </div>
