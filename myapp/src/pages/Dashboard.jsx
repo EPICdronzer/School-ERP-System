@@ -11,7 +11,13 @@ import { PiStudentFill } from "react-icons/pi";
 import { MdPeopleAlt } from "react-icons/md";
 import FinanceBarChart from "../components/FinanceBarChart";
 import IncomeDonutChart from "../components/IncomeDonutChart";
-import StudentAttendanceCard from "../components/StudentAttendanceCard";
+import StudentAttendanceCard from "../components/StatsCard";
+import StatsCard from "../components/StatsCard";
+import NoticeBoard from "../components/NoticeBoard";
+import UpcomingEvents from "../components/UpcomingEvents";
+import FacultyOnLeave from "../components/FacultyOnLeave";
+import FacultyDetails from "../components/FacultyDetails";
+import AcademicSchedule from "../components/AcademicSchedule";
 
 function Dashboard(){
     const [collapsed, setCollapsed] = useState(false);
@@ -61,53 +67,57 @@ function Dashboard(){
           </div>
         </div>
         
-        <div className="col-span-2 row-span-10 w-full h-full shadow-xl border-2 border-gray-200 rounded-md p-4 flex gap-3 flex-col">
-          <div className="flex justify-between font-semibold text-black text-lg">
-            Notice Board
-          </div>
-          
-          <div class="w-[350px] h-[250px] overflow-y-auto border-2 border-gray-300 rounded-lg p-3 bg-white">
-  
-              <div class="border-b border-gray-200 py-2">
-                <h3 class="text-red-600 font-semibold underline text-sm">
-                  Result for Class IX is out Now!!!
-                </h3>
-                <p class="text-gray-500 text-xs mt-1">Today, 11:00 am</p>
-              </div>
+        <div className="col-span-2 row-span-10 w-full h-full shadow-xl border-2 border-gray-200 rounded-md p-4 flex gap-5 flex-col">
+          <NoticeBoard notices={[
+            { title: "Result for Class IX is out Now!!!", time: "Today, 11:00 am" },
+            { title: "Result for Class VIII is out Now!!!", time: "Today, 11:00 am" },
+            { title: "Result for Class VII is out Now!!!", time: "Today, 11:00 am" },
+            { title: "Result for Class VI is out Now!!!", time: "Today, 11:00 am" },
+            { title: "Result for Class V is out Now!!!", time: "Today, 11:00 am" },
+          ]}/>
+          <UpcomingEvents events={[
+            {
+              title: "Webinar on Career Trends for Class-X",
+              date: "23, Jun",
+              time: "11:00 AM",
+            },
+            {
+              title: "Parent-Teacher Meeting",
+              date: "25, Jun",
+              time: "09:30 AM",
+            },
+            {
+              title: "Science Exhibition",
+              date: "28, Jun",
+              time: "10:00 AM",
+            },
+          ]}/>
+          <FacultyOnLeave
+            faculty={[
+              {
+                name: "Suchita Sachdeva",
+                subject: "Mathematics",
+                className: "Class XI",
+                image: "https://randomuser.me/api/portraits/women/44.jpg",
+              },
+              {
+                name: "Ramesh Kumar",
+                subject: "Physics",
+                className: "Class X",
+                image: "https://randomuser.me/api/portraits/men/32.jpg",
+              },
+            ]}
+          />
+          <FacultyDetails
+            data={[
+              { role: "Admin", count: 1 },
+              { role: "Teachers", count: 80 },
+              { role: "Accountant", count: 1 },
+              { role: "Librarian", count: 2 },
+              { role: "Receptionist", count: 1 },
+            ]}
+          />
 
-              <div class="border-b border-gray-200 py-2">
-                <h3 class="text-red-600 font-semibold underline text-sm">
-                  Result for Class VIII is out Now!!!
-                </h3>
-                <p class="text-gray-500 text-xs mt-1">Today, 11:00 am</p>
-              </div>
-
-              <div class="border-b border-gray-200 py-2">
-                <h3 class="text-red-600 font-semibold underline text-sm">
-                  Result for Class VII is out Now!!!
-                </h3>
-                <p class="text-gray-500 text-xs mt-1">Today, 11:00 am</p>
-              </div>
-
-              <div class="border-b border-gray-200 py-2">
-                <h3 class="text-red-600 font-semibold underline text-sm">
-                  Result for Class VI is out Now!!!
-                </h3>
-                <p class="text-gray-500 text-xs mt-1">Today, 11:00 am</p>
-              </div>
-
-              <div class="py-2">
-                <h3 class="text-red-600 font-semibold underline text-sm">
-                  Result for Class V is out Now!!!
-                </h3>
-                <p class="text-gray-500 text-xs mt-1">Today, 11:00 am</p>
-              </div>
-
-          </div>
-
-          <div>
-            <button></button>
-          </div>
         </div>
 
         <div className="flex flex-col w-full h-full shadow-xl rounded-lg border-2 border-gray-200 p-3 gap-3">
@@ -187,123 +197,56 @@ function Dashboard(){
         
         </div>
         <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
-          <StudentAttendanceCard title="Student Attendance" totalStudents={5000} attendance={[{
-                                                            label: "PRESENT",
-                                                            count: 4396,
-                                                            color: "bg-green-500",
-                                                            percent: 87.92,
-                                                          },
-                                                          {
-                                                            label: "LATE",
-                                                            count: 0,
-                                                            color: "bg-gray-300",
-                                                            percent: 0.0,
-                                                          },
-                                                          {
-                                                            label: "ABSENT",
-                                                            count: 609,
-                                                            color: "bg-red-500",
-                                                            percent: 12.18,
-                                                          },
-                                                          {
-                                                            label: "HALF DAY",
-                                                            count: 5,
-                                                            color: "bg-yellow-400",
-                                                            percent: 0.1,
-                                                          },]}/>
+          <StatsCard
+            title="Student Attendance"
+            data={[
+              { label: "PRESENT", count: 4396, total: 5000, color: "bg-green-500" },
+              { label: "LATE", count: 0, total: 5000, color: "bg-gray-300" },
+              { label: "ABSENT", count: 609, total: 5000, color: "bg-red-500" },
+              { label: "HALF DAY", count: 5, total: 5000, color: "bg-yellow-400" },
+            ]}
+          />
+
         </div>
         <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
-          <StudentAttendanceCard title="Library Overview"
-totalStudents={36}
-attendance={[
-  {
-    label: "DUE FOR RETURNED",
-    count: 5,
-    color: "bg-red-500",
-    percent: 13.8,
-  },
-  {
-    label: "RETURNED",
-    count: 31,
-    color: "bg-green-500",
-    percent: 86.11,
-  },
-  {
-    label: "ISSUED",
-    count: 36,
-    color: "bg-yellow-400",
-    percent: 8.0,
-  },
-  {
-    label: "AVAILABLE",
-    count: 414,
-    color: "bg-cyan-500",
-    percent: 92.0,
-  },
-]}/>
+          <StatsCard
+            title="Library Overview"
+            data={[
+              { label: "DUE FOR RETURNED", count: 5, total: 36, color: "bg-red-500" },
+              { label: "RETURNED", count: 31, total: 36, color: "bg-green-500" },
+              { label: "ISSUED", count: 36, total: 450, color: "bg-yellow-400" },
+              { label: "AVAILABLE", count: 414, total: 450, color: "bg-cyan-500" },
+            ]}
+          />
+
         </div>
         <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
-          <StudentAttendanceCard title="Fees Overview"
-totalStudents={5000}
-attendance={[
-  {
-    label: "UNPAID",
-    count: 1000,
-    color: "bg-red-500",
-    percent: 87.92,
-  },
-  {
-    label: "PARTIAL",
-    count: 550,
-    color: "bg-yellow-400",
-    percent: 12.18,
-  },
-  {
-    label: "PAID",
-    count: 250,
-    color: "bg-green-500",
-    percent: 0.1,
-  },
-]}/>
+          <StatsCard
+            title="Fees Overview"
+            data={[
+              { label: "UNPAID", count: 1000, total: 5000, color: "bg-red-500" },
+              { label: "PARTIAL", count: 550, total: 5000, color: "bg-yellow-400" },
+              { label: "PAID", count: 250, total: 5000, color: "bg-green-500" },
+            ]}
+          />
+
         </div>
         <div className="col-span-2 row-span-2 w-full h-full shadow-xl rounded-lg border-2 border-gray-200">
-          <StudentAttendanceCard title="Enquiry Overview"
-totalStudents={10}
-attendance={[
-  {
-    label: "ACTIVE",
-    count: 5,
-    color: "bg-cyan-500",
-    percent: 50.0,
-  },
-  {
-    label: "WON",
-    count: 2,
-    color: "bg-green-500",
-    percent: 20.0,
-  },
-  {
-    label: "PASSIVE",
-    count: 1,
-    color: "bg-yellow-400",
-    percent: 10.0,
-  },
-  {
-    label: "LOSS",
-    count: 1,
-    color: "bg-red-500",
-    percent: 10.0,
-  },
-  {
-    label: "DEAD",
-    count: 1,
-    color: "bg-gray-400",
-    percent: 10.0,
-  },
-]}
-/>
+         <StatsCard
+            title="Enquiry Overview"
+            data={[
+              { label: "ACTIVE", count: 5, total: 10, color: "bg-cyan-500" },
+              { label: "WON", count: 2, total: 10, color: "bg-green-500" },
+              { label: "PASSIVE", count: 1, total: 10, color: "bg-yellow-400" },
+              { label: "LOSS", count: 1, total: 10, color: "bg-red-500" },
+              { label: "DEAD", count: 1, total: 10, color: "bg-gray-400" },
+            ]}
+          />
+
         </div>
-        <div className="col-span-6 row-span-4 w-full h-full shadow-xl border-2 border-gray-200 rounded-md"></div>
+        <div className="col-span-6 row-span-4 w-full h-full shadow-xl border-2 border-gray-200 rounded-md">
+          <AcademicSchedule/>
+        </div>
       </div>
     </Layout>
     </>
