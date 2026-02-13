@@ -3,8 +3,8 @@ import { IoNotificationsCircleSharp } from "react-icons/io5";
 function NavBar({collapsed}){
     return(
         
-    <header className={`flex justify-between fixed top-0 right-0 h-16 bg-white shadow-md flex items-center px-6 transition-all duration-300 ${collapsed ? "left-20" : "left-64"}`}>
-        <div className="font-semibold">Admin Dashboard</div>
+    <header className={`flex justify-between fixed z-50 top-0 right-0 h-16 bg-white shadow-md flex items-center  transition-all duration-300 ${collapsed ? "left-17 px-10" : "left-64 px-6"}`}>
+        <div className="font-semibold !text-lg">Dashboard</div>
         <div className="flex gap-4 justify-center items-center">
             <input
             type="text"
