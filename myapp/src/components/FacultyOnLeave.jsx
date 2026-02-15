@@ -61,7 +61,7 @@ export default function FacultyOnLeave({ faculty }) {
       {/* Add Button */}
       <button
         onClick={() => navigate("/add-faculty")}
-        className="!w-full opacity-50 mt-3 sm:w-auto sm:px-6 sm:py-2 text-sm bg-sky-100 !text-blue-600 font-bold px-4 py-2 rounded-md hover:bg-sky-400 hover:!text-white transition"
+        className="!rounded-lg !w-full opacity-50 mt-3 sm:w-auto sm:px-6 sm:py-2 text-sm bg-sky-100 !text-blue-600 font-bold px-4 py-2 rounded-md hover:bg-sky-400 hover:!text-white transition"
       >
         + Add Faculty
       </button>

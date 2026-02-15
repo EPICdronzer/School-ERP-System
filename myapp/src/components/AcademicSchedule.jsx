@@ -43,7 +43,7 @@ export default function AcademicSchedule() {
           Academic Schedule
         </div>
 
-        <select className="border rounded-md px-2 py-1 text-sm">
+        <select className="border rounded-md px-2 py-1 !text-xs !shadow-xl !bg-white !font-semibold">
           <option>Month</option>
         </select>
       </div>
@@ -73,7 +73,7 @@ export default function AcademicSchedule() {
         {days.map((day) => (
           <div
             key={day}
-            className="border-r border-b border-gray-200 text-center font-medium text-xs py-2 bg-gray-50"
+            className="border-r border-b border-gray-200 text-center font-medium text-sm py-2 bg-gray-50 !p-3"
           >
             {day}
           </div>
@@ -83,10 +83,10 @@ export default function AcademicSchedule() {
         {dates.map((date, index) => (
           <div
             key={index}
-            className="border-r border-b border-gray-200 p-1 text-xs relative flex items-start"
+            className="border-r border-b border-gray-200 !text-center p-3 text-sm relative flex justify-center font-semibold"
           >
             {date && (
-              <span className="text-gray-600">
+              <span className="text-gray-600 !text-center">
                 {date.toString().padStart(2, "0")}
               </span>
             )}

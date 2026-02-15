@@ -8,7 +8,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
     <aside
       className={`fixed top-0 left-0 h-full bg-[#0C3564] text-white
       transition-all duration-300 z-40
-      ${collapsed ? "w-17" : "w-64"}`}
+      ${collapsed ? "w-17" : "w-64 z-50"}`}
     >
       <div className="h-16 flex items-center justify-between px-4 border-b border-white/20">
         {!collapsed && <span className="font-bold text-2xl">Admin</span>}

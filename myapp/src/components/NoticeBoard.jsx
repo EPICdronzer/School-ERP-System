@@ -23,7 +23,7 @@ export default function NoticeBoard({ notices }) {
                 : ""
             }`}
           >
-            <h3 className="!text-red-600 font-semibold underline text-sm sm:!text-base cursor-pointer hover:text-red-700 transition">
+            <h3 className="!text-red-600 font-semibold underline text-xs sm:!text-sm cursor-pointer hover:text-red-700 transition">
               {notice.title}
             </h3>
             <p className="text-gray-500 text-xs sm:text-sm mt-1">
@@ -42,7 +42,7 @@ export default function NoticeBoard({ notices }) {
       {/* Button */}
       <button
         onClick={() => navigate("/add-notice")}
-        className="!w-full opacity-50 mt-3 sm:w-auto sm:px-6 sm:py-2 text-sm bg-sky-100 !text-blue-600 font-bold px-4 py-2 rounded-md hover:bg-sky-400 hover:!text-white transition"
+        className="!rounded-lg !w-full opacity-50 mt-3 sm:w-auto sm:px-6 sm:py-2 text-sm bg-sky-100 !text-blue-600 font-bold px-4 py-2 rounded-md hover:bg-sky-400 hover:!text-white transition"
       >
         + Add New Notice
       </button>
