@@ -30,7 +30,8 @@ function LoginForm(){
           <div className="flex gap-2 items-center text-gray-700">
             <input type="checkbox" className="accent-orange-500" />
             <div className="text-xs  opacity-80">Remember Me</div>
-          </div>
+          </
+          div>
 
           <div className="text-[10px] sm:text-xs opacity-75 text-center sm:text-left text-gray-700 leading-relaxed">
             By Logging in, you agree to MyClassboard's{" "}
