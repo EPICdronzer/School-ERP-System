@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaHome, FaChartBar, FaUsers, FaCog } from "react-icons/fa";
-
+import {Link} from "react-router-dom"
 export default function Sidebar({ collapsed, setCollapsed }) {
   const [active, setActive] = useState("Dashboard"); // Default active
 
@@ -26,22 +26,22 @@ export default function Sidebar({ collapsed, setCollapsed }) {
             onClick={() => setCollapsed(!collapsed)}
           />
         </div>
-
+        
         <nav className="mt-2 flex flex-col gap-1 px-2">
-          <Item
+          <Link className="text-white" to="/Home"><Item
             icon={<FaHome />}
             text="Dashboard"
             collapsed={collapsed}
             active={active}
             setActive={setActive}
-          />
-          <Item
+          /></Link>
+          <Link className="text-white" to="/"><Item
             icon={<FaChartBar />}
-            text="Reports"
+            text="Student"
             collapsed={collapsed}
             active={active}
             setActive={setActive}
-          />
+          /></Link>
           <Item
             icon={<FaUsers />}
             text="Users"
