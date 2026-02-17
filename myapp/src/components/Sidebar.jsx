@@ -35,7 +35,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
             active={active}
             setActive={setActive}
           /></Link>
-          <Link className="text-white" to="/"><Item
+          <Link className="text-white" to="/Student"><Item
             icon={<FaChartBar />}
             text="Student"
             collapsed={collapsed}
