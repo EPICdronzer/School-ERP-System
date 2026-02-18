@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 import { FaBars, FaHome, FaChartBar, FaUsers, FaCog } from "react-icons/fa";
-import {Link} from "react-router-dom"
+
 export default function Sidebar({ collapsed, setCollapsed }) {
-  const [active, setActive] = useState("Dashboard"); // Default active
+  const location = useLocation();
 
   return (
     <>
-      {/* Overlay for mobile when sidebar is open */}
       {!collapsed && (
         <div
           className="fixed inset-0 bg-black/50 z-30 lg:hidden"
@@ -26,35 +25,38 @@ export default function Sidebar({ collapsed, setCollapsed }) {
             onClick={() => setCollapsed(!collapsed)}
           />
         </div>
-        
-        <nav className="mt-2 flex flex-col gap-1 px-2">
-          <Link className="text-white" to="/Home"><Item
+
+        <nav className="mt-2 flex flex-col gap-1 px-2 ">
+          <Item
             icon={<FaHome />}
             text="Dashboard"
             collapsed={collapsed}
-            active={active}
-            setActive={setActive}
-          /></Link>
-          <Link className="text-white" to="/Student"><Item
+            path="/admin/home"
+            currentPath={location.pathname}
+          />
+
+          <Item
             icon={<FaChartBar />}
             text="Student"
             collapsed={collapsed}
-            active={active}
-            setActive={setActive}
-          /></Link>
+            path="/admin/student"
+            currentPath={location.pathname}
+          />
+
           <Item
             icon={<FaUsers />}
             text="Users"
             collapsed={collapsed}
-            active={active}
-            setActive={setActive}
+            path="/admin/users"
+            currentPath={location.pathname}
           />
+
           <Item
             icon={<FaCog />}
             text="Settings"
             collapsed={collapsed}
-            active={active}
-            setActive={setActive}
+            path="/admin/settings"
+            currentPath={location.pathname}
           />
         </nav>
       </aside>
@@ -62,28 +64,30 @@ export default function Sidebar({ collapsed, setCollapsed }) {
   );
 }
 
-function Item({ icon, text, collapsed, active, setActive }) {
-  const isActive = active === text;
+
+function Item({ icon, text, collapsed, path, currentPath }) {
+  const isActive = currentPath === path;
 
   return (
-    <div
-      onClick={() => setActive(text)}
-      className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer relative transition-all duration-200
-      ${
-        isActive
-          ? "bg-[#3558A8] shadow-md font-semibold"
-          : "hover:bg-white/10"
-      }`}
-    >
-      <div className="text-lg">{icon}</div>
+    <Link to={path} className="text-white !no-underline">
+      <div
+        className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer relative transition-all duration-200 
+        ${
+          isActive
+            ? "bg-[#3558A8] shadow-md font-semibold"
+            : "hover:bg-white/10"
+        }`}
+      >
+        <div className="text-lg">{icon}</div>
 
-      {!collapsed && <span className="text-sm">{text}</span>}
+        {!collapsed && <span className="text-sm ">{text}</span>}
 
-      {collapsed && (
-        <span className="absolute left-20 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-50 pointer-events-none">
-          {text}
-        </span>
-      )}
-    </div>
+        {collapsed && (
+          <span className="absolute left-20 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-50 pointer-events-none">
+            {text}
+          </span>
+        )}
+      </div>
+    </Link>
   );
 }

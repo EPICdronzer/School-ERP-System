@@ -24,7 +24,7 @@ function Dashboard(){
 
   return (
     <>
-    <Layout>
+    
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 auto-rows-auto">
         
         {/* Stats Cards Row 1 - Responsive: 1 col mobile, 2 cols tablet, 4 cols desktop, 6 cols xl */}
@@ -264,7 +264,6 @@ function Dashboard(){
           <AcademicSchedule/>
         </div>
       </div>
-    </Layout>
     </>
     )
 }

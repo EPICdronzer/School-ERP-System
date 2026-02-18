@@ -36,9 +36,9 @@ function LoginData() {
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("role", storedUser.role);
 
-      if (storedUser.role === "admin") navigate("/Home");
-      else if (storedUser.role === "teacher") navigate("/Home");
-      else navigate("/Home");
+      if (storedUser.role === "admin") navigate("/admin/home");
+      else if (storedUser.role === "teacher") navigate("/teacher/home");
+      else navigate("/student/Home");
 
     } else {
       alert("Invalid credentials");

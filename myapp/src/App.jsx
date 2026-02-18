@@ -1,22 +1,25 @@
-import './App.css'
-import {BrowserRouter, Route, Routes} from "react-router"
-import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
-import StudentOverviewPage from './pages/StudentOverviewPage'
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import StudentOverviewPage from "./pages/StudentOverviewPage";
+import AdminLandingPage from "./AdminLook/AdminLandingPage";
+
 function App() {
-  
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login/>}/>
-          <Route path="/Home" element={<Dashboard/>}/>
-          <Route path="/Student" element={<StudentOverviewPage/>}/>
-          <Route path="*" element="Error Wrong URL"/>
-        </Routes>
-      </BrowserRouter>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+
+        <Route path="/admin" element={<AdminLandingPage />}>
+          <Route path="home" element={<Dashboard />} />
+          <Route path="student" element={<StudentOverviewPage />} />
+        </Route>
+
+        <Route path="*" element={<h1>Error Wrong URL</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

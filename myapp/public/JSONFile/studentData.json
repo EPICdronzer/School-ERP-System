@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Eleanor Pena",
+    "roll": "#01",
+    "address": "TA-107 Newyork",
+    "class": "01",
+    "dob": "02/05/2001",
+    "phone": "+123 6988567",
+    "image": "https://i.pravatar.cc/40?img=1"
+  },
+  {
+    "id": 2,
+    "name": "Jessia Rose",
+    "roll": "#02",
+    "address": "TA-107 Newyork",
+    "class": "02",
+    "dob": "03/04/2000",
+    "phone": "+123 8988569",
+    "image": "https://i.pravatar.cc/40?img=2"
+  },
+  {
+    "id": 3,
+    "name": "Jenny Wilson",
+    "roll": "#03",
+    "address": "Australia, Sydney",
+    "class": "01",
+    "dob": "12/05/2001",
+    "phone": "+123 7988566",
+    "image": "https://i.pravatar.cc/40?img=3"
+  },
+  {
+    "id": 4,
+    "name": "Guy Hawkins",
+    "roll": "#04",
+    "address": "Australia, Sydney",
+    "class": "02",
+    "dob": "03/05/2001",
+    "phone": "+123 5988565",
+    "image": "https://i.pravatar.cc/40?img=4"
+  },
+  {
+    "id": 5,
+    "name": "Brooklyn Simmons",
+    "roll": "#05",
+    "address": "Los Angeles, USA",
+    "class": "03",
+    "dob": "14/08/2002",
+    "phone": "+123 4567890",
+    "image": "https://i.pravatar.cc/40?img=5"
+  },
+  {
+    "id": 6,
+    "name": "Cameron Williamson",
+    "roll": "#06",
+    "address": "Texas, USA",
+    "class": "04",
+    "dob": "21/09/2001",
+    "phone": "+123 6543210",
+    "image": "https://i.pravatar.cc/40?img=6"
+  },
+  {
+    "id": 7,
+    "name": "Courtney Henry",
+    "roll": "#07",
+    "address": "London, UK",
+    "class": "05",
+    "dob": "10/11/2000",
+    "phone": "+123 1122334",
+    "image": "https://i.pravatar.cc/40?img=7"
+  },
+  {
+    "id": 8,
+    "name": "Devon Lane",
+    "roll": "#08",
+    "address": "Toronto, Canada",
+    "class": "06",
+    "dob": "05/06/2002",
+    "phone": "+123 2233445",
+    "image": "https://i.pravatar.cc/40?img=8"
+  },
+  {
+    "id": 9,
+    "name": "Savannah Nguyen",
+    "roll": "#09",
+    "address": "Chicago, USA",
+    "class": "07",
+    "dob": "19/07/2001",
+    "phone": "+123 3344556",
+    "image": "https://i.pravatar.cc/40?img=9"
+  },
+  {
+    "id": 10,
+    "name": "Darlene Robertson",
+    "roll": "#10",
+    "address": "Berlin, Germany",
+    "class": "08",
+    "dob": "23/03/2000",
+    "phone": "+123 4455667",
+    "image": "https://i.pravatar.cc/40?img=10"
+  },
+  {
+    "id": 11,
+    "name": "Wade Warren",
+    "roll": "#11",
+    "address": "Paris, France",
+    "class": "09",
+    "dob": "17/02/2002",
+    "phone": "+123 5566778",
+    "image": "https://i.pravatar.cc/40?img=11"
+  },
+  {
+    "id": 12,
+    "name": "Bessie Cooper",
+    "roll": "#12",
+    "address": "Madrid, Spain",
+    "class": "10",
+    "dob": "30/01/2001",
+    "phone": "+123 6677889",
+    "image": "https://i.pravatar.cc/40?img=12"
+  }
+]
