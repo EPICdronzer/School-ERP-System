@@ -47,7 +47,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
             icon={<FaUsers />}
             text="Users"
             collapsed={collapsed}
-            path="/admin/users"
+            path="/admin/teachers"
             currentPath={location.pathname}
           />
 

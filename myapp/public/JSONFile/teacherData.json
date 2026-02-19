@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Amit Sharma",
+    "employeeId": "T101",
+    "subject": "Mathematics",
+    "department": "Science",
+    "email": "amit.sharma@gmail.com",
+    "phone": "9876543210",
+    "image": "https://randomuser.me/api/portraits/men/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Neha Verma",
+    "employeeId": "T102",
+    "subject": "English",
+    "department": "Arts",
+    "email": "neha.verma@gmail.com",
+    "phone": "9876543211",
+    "image": "https://randomuser.me/api/portraits/women/2.jpg"
+  }
+]

@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import StudentOverviewPage from "./pages/StudentOverviewPage";
 import AdminLandingPage from "./AdminLook/AdminLandingPage";
+import TeacherOverviewPage from "./pages/TeacherOverviewPage";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/admin" element={<AdminLandingPage />}>
           <Route path="home" element={<Dashboard />} />
           <Route path="student" element={<StudentOverviewPage />} />
+          <Route path="teachers" element={<TeacherOverviewPage />} />
+        
         </Route>
 
         <Route path="*" element={<h1>Error Wrong URL</h1>} />
