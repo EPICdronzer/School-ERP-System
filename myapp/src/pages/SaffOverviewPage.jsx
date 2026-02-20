@@ -3,39 +3,37 @@ import axios from "axios";
 import { FaTrash, FaEdit } from "react-icons/fa";
 import useSearch from "../hooks/useSearch";
 
-function TeacherOverviewPage() {
+function StaffOverviewPage() {
   const [loading, setLoading] = useState(true);
-  const [teachers, setTeachers] = useState([]);
+  const [staff, setStaff] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const [departmentFilter, setDepartmentFilter] = useState("All");
+  const [roleFilter, setRoleFilter] = useState("All");
 
   const itemsPerPage = 5;
 
   useEffect(() => {
     axios
-      .get("/JSONFile/teacherData.json")
+      .get("/JSONFile/staffData.json")
       .then((res) => {
-        setTeachers(res.data);
+        setStaff(res.data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Error fetching teachers:", err);
+        console.error("Error fetching staff:", err);
         setLoading(false);
       });
   }, []);
 
-  const filteredTeachers =
-    departmentFilter === "All"
-      ? teachers
-      : teachers.filter(
-          (teacher) => teacher.department === departmentFilter
-        );
+  const filteredStaff =
+    roleFilter === "All"
+      ? staff
+      : staff.filter((member) => member.role === roleFilter);
 
-  const { currentItems: currentTeachers, totalPages } =
-    useSearch(filteredTeachers, searchTerm, currentPage, itemsPerPage);
+  const { currentItems: currentStaff, totalPages } =
+    useSearch(filteredStaff, searchTerm, currentPage, itemsPerPage);
 
-  if (loading) return <div className="p-6">Loading teachers...</div>;
+  if (loading) return <div className="p-6">Loading staff...</div>;
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -44,32 +42,34 @@ function TeacherOverviewPage() {
   return (
     <div className="flex flex-col w-full px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto">
 
+      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 w-full mb-6">
         <div>
           <div className="text-lg font-semibold text-gray-800">
-            Teacher Management
+            Staff Management
           </div>
           <p className="text-sm text-gray-500">
-            Manage and monitor all teachers
+            Manage non-teaching staff members
           </p>
         </div>
 
         <button className="bg-blue-800 text-white px-4 py-2.5 rounded-xl font-medium 
                           hover:bg-blue-600 transition duration-200 
                           shadow-md hover:shadow-lg active:scale-95">
-          + Add Teacher
+          + Add Staff
         </button>
       </div>
 
+      {/* Filters */}
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-4">
         <div className="text-xl font-semibold">
-          Teachers Information
+          Staff Information
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
           <input
             type="text"
-            placeholder="Search by name, subject, email..."
+            placeholder="Search by name, role, email..."
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);
@@ -79,32 +79,39 @@ function TeacherOverviewPage() {
           />
 
           <select
-            value={departmentFilter}
+            value={roleFilter}
             onChange={(e) => {
-              setDepartmentFilter(e.target.value);
+              setRoleFilter(e.target.value);
               setCurrentPage(1);
             }}
             className="border rounded-lg px-3 py-2 text-sm focus:outline-none"
           >
-            <option value="All">All Departments</option>
-            <option value="Science">Science</option>
-            <option value="Commerce">Commerce</option>
-            <option value="Arts">Arts</option>
+            <option value="All">All Roles</option>
+            <option value="Assistant">Assistant</option>
+            <option value="Peon">Peon</option>
+            <option value="Clerk">Clerk</option>
+            <option value="Accountant">Accountant</option>
+            <option value="Librarian">Librarian</option>
+            <option value="Receptionist">Receptionist</option>
+            <option value="Lab Assistant">Lab Assistant</option>
+            <option value="Security">Security</option>
           </select>
         </div>
       </div>
 
+      {/* Record Count */}
       <div className="text-sm text-gray-500 mb-2">
-        Showing {currentTeachers.length} of {filteredTeachers.length} teachers
+        Showing {currentStaff?.length || 0} of {filteredStaff.length} staff members
       </div>
 
+      {/* Table */}
       <div className="w-full overflow-x-auto bg-white rounded-xl shadow-sm">
         <table className="min-w-[900px] w-full text-sm text-left">
           <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
             <tr>
-              <th className="p-3">Teacher Name</th>
+              <th className="p-3">Staff Name</th>
               <th className="p-3">Employee ID</th>
-              <th className="p-3">Subject</th>
+              <th className="p-3">Role</th>
               <th className="p-3">Department</th>
               <th className="p-3">Email</th>
               <th className="p-3">Phone</th>
@@ -113,32 +120,32 @@ function TeacherOverviewPage() {
           </thead>
 
           <tbody>
-            {currentTeachers.length === 0 ? (
+            {currentStaff?.length === 0 ? (
               <tr>
                 <td colSpan="7" className="text-center p-6 text-gray-500">
-                  No teachers found
+                  No staff members found
                 </td>
               </tr>
             ) : (
-              currentTeachers.map((teacher) => (
+              currentStaff?.map((member) => (
                 <tr
-                  key={teacher.id}
-                  className="border-b hover:bg-purple-50 transition"
+                  key={member.id}
+                  className="border-b hover:bg-blue-50 transition"
                 >
                   <td className="p-3 flex items-center gap-3">
                     <img
-                      src={teacher.image}
+                      src={member.image}
                       alt="avatar"
                       className="w-10 h-10 rounded-full object-cover"
                     />
-                    <span className="font-medium">{teacher.name}</span>
+                    <span className="font-medium">{member.name}</span>
                   </td>
 
-                  <td className="p-3">{teacher.employeeId}</td>
-                  <td className="p-3">{teacher.subject}</td>
-                  <td className="p-3">{teacher.department}</td>
-                  <td className="p-3">{teacher.email}</td>
-                  <td className="p-3">{teacher.phone}</td>
+                  <td className="p-3">{member.employeeId}</td>
+                  <td className="p-3">{member.role}</td>
+                  <td className="p-3">{member.department}</td>
+                  <td className="p-3">{member.email}</td>
+                  <td className="p-3">{member.phone}</td>
 
                   <td className="p-3 flex justify-center gap-2 text-gray-500">
                     <button className="p-2 rounded-md hover:bg-blue-100 transition">
@@ -198,4 +205,4 @@ function TeacherOverviewPage() {
   );
 }
 
-export default TeacherOverviewPage;
+export default StaffOverviewPage;

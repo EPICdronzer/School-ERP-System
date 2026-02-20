@@ -1,30 +1,30 @@
 import { useMemo } from "react";
 
 export default function useSearch(
-  user,
+  data,
   searchTerm,
   currentPage,
   itemsPerPage
 ) {
-  const filteredStudents = useMemo(() => {
-    if (!searchTerm) return user;
+  const filteredData = useMemo(() => {
+    if (!searchTerm) return data;
 
-    return user.filter((item) =>
-      Object.values(item).some((value) =>
-        value &&
-        value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+    return data.filter((item) =>
+      Object.values(item).some(
+        (value) =>
+          value &&
+          value.toString().toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-  }, [user, searchTerm]);
-  const totalPages = Math.ceil(filteredStudents.length / itemsPerPage);
+  }, [data, searchTerm]);
 
-  const lastIndex = currentPage * itemsPerPage;
-  const firstIndex = lastIndex - itemsPerPage;
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  const currentStudents = filteredStudents.slice(firstIndex, lastIndex);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filteredData.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
-  return {
-    currentStudents,
-    totalPages,
-  };
+  return { currentItems, totalPages };
 }

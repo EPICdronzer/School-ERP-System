@@ -21,14 +21,11 @@ function NavBar({ collapsed }) {
       ${collapsed ? "left-17" : "left-64"}`}
     >
       <div className="h-full flex items-center justify-between px-6">
-        {/* Left Section - Page Title */}
         <div className="flex items-center gap-4">
-          <div className="text-xl font-bold text-gray-800">Dashboard</div>
+          <div className="text-lg font-bold text-gray-800">{localStorage.getItem("role").toUpperCase()}</div>
         </div>
 
-        {/* Right Section */}
         <div className="flex items-center gap-4">
-          {/* Search Bar */}
           <div className="hidden md:flex items-center gap-2 bg-gray-100 rounded-lg px-4 py-2 w-64 focus-within:ring-2 focus-within:ring-[#0C3564] focus-within:bg-white transition-all">
             <FiSearch className="w-5 h-5 text-gray-400" />
             <input
@@ -38,7 +35,6 @@ function NavBar({ collapsed }) {
             />
           </div>
 
-          {/* Notifications */}
           <div className="relative">
             <button
               onClick={() => setShowNotifications(!showNotifications)}
@@ -53,7 +49,6 @@ function NavBar({ collapsed }) {
               )}
             </button>
 
-            {/* Notifications Dropdown */}
             {showNotifications && (
               <>
                 <div
@@ -94,7 +89,6 @@ function NavBar({ collapsed }) {
             )}
           </div>
 
-          {/* Profile */}
           <div className="flex items-center justify-center">
             <button
               onClick={() => setShowProfile(!showProfile)}
@@ -111,41 +105,40 @@ function NavBar({ collapsed }) {
               <FaChevronDown className={`w-3 h-3 text-gray-400 hidden lg:block transition-transform duration-200 ${showProfile ? 'rotate-180' : ''}`} />
             </button>
 
-            {/* Profile Dropdown */}
             {showProfile && (
-  <>
-    <div
-      className="fixed inset-0 z-[60]"
-      onClick={() => setShowProfile(false)}
-    />
-    <div className="absolute right-2 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 z-[70]">
-      <div className="p-4 border-b border-gray-200 bg-[#0C3564]">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-            <FaUser className="w-6 h-6 text-[#0C3564]" />
-          </div>
-          <div className="flex flex-col gap-1 min-w-0">
-            <p className="text-sm font-semibold text-white truncate">John Doe</p>
-            <p className="text-xs text-white/80 truncate">admin@example.com</p>
-          </div>
-        </div>
-      </div>
-      <div className="p-2">
-        <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200 flex items-center gap-2">
-          <FaUser className="w-4 h-4" />
-          Profile
-        </button>
-        <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200 flex items-center gap-2">
-          <FaCog className="w-4 h-4" />
-          Settings
-        </button>
-        <hr className="my-2 border-gray-200" />
-        <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 flex items-center gap-2">
-          Logout
-        </button>
-      </div>
-    </div>
-  </>
+              <>
+                <div
+                  className="fixed inset-0 z-[60]"
+                  onClick={() => setShowProfile(false)}
+                />
+                <div className="absolute right-2 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 z-[70]">
+                  <div className="p-4 border-b border-gray-200 bg-[#0C3564]">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                        <FaUser className="w-6 h-6 text-[#0C3564]" />
+                      </div>
+                      <div className="flex flex-col gap-1 min-w-0">
+                        <p className="text-sm font-semibold text-white truncate">John Doe</p>
+                        <p className="text-xs text-white/80 truncate">admin@example.com</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-2">
+                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200 flex items-center gap-2">
+                      <FaUser className="w-4 h-4" />
+                      Profile
+                    </button>
+                    <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-all duration-200 flex items-center gap-2">
+                      <FaCog className="w-4 h-4" />
+                      Settings
+                    </button>
+                    <hr className="my-2 border-gray-200" />
+                    <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 flex items-center gap-2">
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </>
 )}
           </div>
         </div>

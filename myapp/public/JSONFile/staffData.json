@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Ramesh Kumar",
+    "employeeId": "STF001",
+    "role": "Peon",
+    "department": "Administration",
+    "email": "ramesh@gmail.com",
+    "phone": "9876543210",
+    "image": "https://i.pravatar.cc/150?img=11"
+  },
+  {
+    "id": 2,
+    "name": "Anita Sharma",
+    "employeeId": "STF002",
+    "role": "Accountant",
+    "department": "Finance",
+    "email": "anita@gmail.com",
+    "phone": "9123456780",
+    "image": "https://i.pravatar.cc/150?img=12"
+  }
+]

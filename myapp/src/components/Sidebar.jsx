@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-import { FaBars, FaHome, FaChartBar, FaUsers, FaCog } from "react-icons/fa";
+import { FaBars, FaHome, FaChartBar, FaUsers, FaCog, FaUserGraduate, FaUserTie, FaChalkboardTeacher  } from "react-icons/fa";
 
 export default function Sidebar({ collapsed, setCollapsed }) {
   const location = useLocation();
@@ -19,7 +19,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
         ${collapsed ? "w-16" : "w-64"}`}
       >
         <div className="h-16 flex items-center justify-between px-4 border-b border-white/20">
-          {!collapsed && <span className="font-bold text-2xl">Admin</span>}
+          {!collapsed && <span className="font-bold text-3xl">BFA</span>}
           <FaBars
             className="cursor-pointer hover:opacity-80 transition-opacity"
             onClick={() => setCollapsed(!collapsed)}
@@ -36,18 +36,26 @@ export default function Sidebar({ collapsed, setCollapsed }) {
           />
 
           <Item
-            icon={<FaChartBar />}
-            text="Student"
+            icon={<FaUserGraduate  />}
+            text="Students"
             collapsed={collapsed}
             path="/admin/student"
             currentPath={location.pathname}
           />
 
           <Item
-            icon={<FaUsers />}
-            text="Users"
+            icon={<FaChalkboardTeacher  />}
+            text="Teachers"
             collapsed={collapsed}
             path="/admin/teachers"
+            currentPath={location.pathname}
+          />
+
+          <Item
+            icon={<FaUserTie  />}
+            text="Staff"
+            collapsed={collapsed}
+            path="/admin/staff"
             currentPath={location.pathname}
           />
 
