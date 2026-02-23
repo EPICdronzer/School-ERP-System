@@ -6,6 +6,7 @@ import StudentOverviewPage from "./pages/StudentOverviewPage";
 import AdminLandingPage from "./AdminLook/AdminLandingPage";
 import TeacherOverviewPage from "./pages/TeacherOverviewPage";
 import SaffOverviewPage from "./pages/SaffOverviewPage";
+import ClassAndSectionOverview from "./pages/ClassAndSectionOverview";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="student" element={<StudentOverviewPage />} />
           <Route path="teachers" element={<TeacherOverviewPage />} />
           <Route path="staff" element={<SaffOverviewPage />} />
+          <Route path="class" element={<ClassAndSectionOverview />} />
         </Route>
 
         <Route path="*" element={<h1>Error Wrong URL</h1>} />

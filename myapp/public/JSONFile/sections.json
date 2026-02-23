@@ -1,0 +1,5 @@
+[
+    { "id": 1, "name": "A", "class": "Class 10", "room": "204", "students": 22 },
+    { "id": 2, "name": "B", "class": "Class 10", "room": "205", "students": 23 },
+    { "id": 3, "name": "A", "class": "Class 9", "room": "102", "students": 18 }
+  ]

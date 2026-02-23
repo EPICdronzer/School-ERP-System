@@ -47,7 +47,7 @@ function StudentOverviewPage() {
           </p>
         </div>
 
-        <button className="bg-blue-800 text-white px-4 py-2.5 rounded-xl font-medium 
+        <button className="bg-blue-800 text-white px-4 py-2.5 !rounded-xl font-medium 
                           hover:bg-blue-600 transition duration-200 
                           shadow-md hover:shadow-lg active:scale-95">
           + Add Student
@@ -69,7 +69,7 @@ function StudentOverviewPage() {
               setSearchTerm(e.target.value);
               setCurrentPage(1);
             }}
-            className="border rounded-lg px-4 py-2 text-sm w-full sm:w-64 
+            className="border !rounded-lg px-4 py-2 text-sm w-full sm:w-64 
                        focus:outline-none focus:ring-2 focus:ring-blue-800"
           />
         </div>
@@ -81,7 +81,7 @@ function StudentOverviewPage() {
       </div>
 
       {/* Table */}
-      <div className="w-full overflow-x-auto bg-white rounded-xl shadow-sm">
+      <div className="w-full overflow-x-auto bg-white !rounded-xl shadow-sm">
         <table className="min-w-[950px] w-full text-sm text-left">
           
           <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
@@ -114,7 +114,7 @@ function StudentOverviewPage() {
                     <img
                       src={student.image}
                       alt="avatar"
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-10 h-10 !rounded-full object-cover"
                     />
                     <div>
                       <div className="font-medium">{student.name}</div>
@@ -133,7 +133,7 @@ function StudentOverviewPage() {
 
                   {/* Stream Badge */}
                   <td className="p-3">
-                    <span className="px-2 py-1 text-xs rounded-full 
+                    <span className="px-2 py-1 text-xs !rounded-full 
                                      bg-blue-100 text-blue-700 font-medium">
                       {student.stream}
                     </span>
@@ -162,7 +162,7 @@ function StudentOverviewPage() {
           <button
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
-            className="px-4 py-2 bg-gray-200 rounded-lg 
+            className="px-4 py-2 bg-gray-200 !rounded-lg 
                        disabled:opacity-50 hover:bg-gray-300 transition"
           >
             Previous
@@ -173,7 +173,7 @@ function StudentOverviewPage() {
               <button
                 key={index}
                 onClick={() => handlePageChange(index + 1)}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition 
+                className={`px-3 py-1 !rounded-md text-sm font-medium transition 
                   ${
                     currentPage === index + 1
                       ? "bg-blue-800 text-white"
@@ -188,7 +188,7 @@ function StudentOverviewPage() {
           <button
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange(currentPage + 1)}
-            className="px-4 py-2 bg-gray-200 rounded-lg 
+            className="px-4 py-2 bg-gray-200 !rounded-lg 
                        disabled:opacity-50 hover:bg-gray-300 transition"
           >
             Next

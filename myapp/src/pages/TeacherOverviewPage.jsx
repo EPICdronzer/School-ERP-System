@@ -54,7 +54,7 @@ function TeacherOverviewPage() {
           </p>
         </div>
 
-        <button className="bg-blue-800 text-white px-4 py-2.5 rounded-xl font-medium 
+        <button className="bg-blue-800 text-white px-4 py-2.5 !rounded-xl font-medium 
                           hover:bg-blue-600 transition duration-200 
                           shadow-md hover:shadow-lg active:scale-95">
           + Add Teacher
@@ -75,7 +75,7 @@ function TeacherOverviewPage() {
               setSearchTerm(e.target.value);
               setCurrentPage(1);
             }}
-            className="border rounded-lg px-4 py-2 text-sm w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-800"
+            className="border !rounded-lg px-4 py-2 text-sm w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-blue-800"
           />
 
           <select
@@ -84,7 +84,7 @@ function TeacherOverviewPage() {
               setDepartmentFilter(e.target.value);
               setCurrentPage(1);
             }}
-            className="border rounded-lg px-3 py-2 text-sm focus:outline-none"
+            className="border !rounded-lg px-3 py-2 text-sm focus:outline-none"
           >
             <option value="All">All Departments</option>
             <option value="Science">Science</option>
@@ -98,7 +98,7 @@ function TeacherOverviewPage() {
         Showing {currentTeachers.length} of {filteredTeachers.length} teachers
       </div>
 
-      <div className="w-full overflow-x-auto bg-white rounded-xl shadow-sm">
+      <div className="w-full overflow-x-auto bg-white !rounded-xl shadow-sm">
         <table className="min-w-[900px] w-full text-sm text-left">
           <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
             <tr>
@@ -129,7 +129,7 @@ function TeacherOverviewPage() {
                     <img
                       src={teacher.image}
                       alt="avatar"
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-10 h-10 !rounded-full object-cover"
                     />
                     <span className="font-medium">{teacher.name}</span>
                   </td>
@@ -141,11 +141,11 @@ function TeacherOverviewPage() {
                   <td className="p-3">{teacher.phone}</td>
 
                   <td className="p-3 flex justify-center gap-2 text-gray-500">
-                    <button className="p-2 rounded-md hover:bg-blue-100 transition">
+                    <button className="p-2 !rounded-md hover:bg-blue-100 transition">
                       <FaEdit className="hover:text-blue-500" />
                     </button>
 
-                    <button className="p-2 rounded-md hover:bg-red-100 transition">
+                    <button className="p-2 !rounded-md hover:bg-red-100 transition">
                       <FaTrash className="hover:text-red-500" />
                     </button>
                   </td>
@@ -163,7 +163,7 @@ function TeacherOverviewPage() {
           <button
             disabled={currentPage === 1}
             onClick={() => handlePageChange(currentPage - 1)}
-            className="px-4 py-2 bg-gray-200 rounded-lg disabled:opacity-50 hover:bg-gray-300 transition"
+            className="px-4 py-2 bg-gray-200 !rounded-lg disabled:opacity-50 hover:bg-gray-300 transition"
           >
             Previous
           </button>
@@ -173,7 +173,7 @@ function TeacherOverviewPage() {
               <button
                 key={index}
                 onClick={() => handlePageChange(index + 1)}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition 
+                className={`px-3 py-1 !rounded-md text-sm font-medium transition 
                   ${
                     currentPage === index + 1
                       ? "bg-blue-800 text-white"
@@ -188,7 +188,7 @@ function TeacherOverviewPage() {
           <button
             disabled={currentPage === totalPages}
             onClick={() => handlePageChange(currentPage + 1)}
-            className="px-4 py-2 bg-gray-200 rounded-lg disabled:opacity-50 hover:bg-gray-300 transition"
+            className="px-4 py-2 bg-gray-200 !rounded-lg disabled:opacity-50 hover:bg-gray-300 transition"
           >
             Next
           </button>

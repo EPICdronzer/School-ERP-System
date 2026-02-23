@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-import { FaBars, FaHome, FaChartBar, FaUsers, FaCog, FaUserGraduate, FaUserTie, FaChalkboardTeacher  } from "react-icons/fa";
+import { FaBars, FaHome, FaChartBar, FaUsers, FaCog, FaUserGraduate, FaUserTie, FaChalkboardTeacher, FaChalkboard  } from "react-icons/fa";
 
 export default function Sidebar({ collapsed, setCollapsed }) {
   const location = useLocation();
@@ -60,6 +60,14 @@ export default function Sidebar({ collapsed, setCollapsed }) {
           />
 
           <Item
+            icon={<FaChalkboard />}
+            text="Class And Section"
+            collapsed={collapsed}
+            path="/admin/class"
+            currentPath={location.pathname}
+          />
+
+          <Item
             icon={<FaCog />}
             text="Settings"
             collapsed={collapsed}
@@ -79,7 +87,7 @@ function Item({ icon, text, collapsed, path, currentPath }) {
   return (
     <Link to={path} className="text-white !no-underline">
       <div
-        className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer relative transition-all duration-200 
+        className={`group flex items-center gap-3 p-3 !rounded-lg cursor-pointer relative transition-all duration-200 
         ${
           isActive
             ? "bg-[#3558A8] shadow-md font-semibold"
@@ -91,7 +99,7 @@ function Item({ icon, text, collapsed, path, currentPath }) {
         {!collapsed && <span className="text-sm ">{text}</span>}
 
         {collapsed && (
-          <span className="absolute left-20 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-50 pointer-events-none">
+          <span className="absolute left-20 bg-black text-white text-xs px-2 py-1 !rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-50 pointer-events-none">
             {text}
           </span>
         )}
