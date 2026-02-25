@@ -42,7 +42,6 @@ function StaffOverviewPage() {
   return (
     <div className="flex flex-col w-full px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto">
 
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 w-full mb-6">
         <div>
           <div className="text-lg font-semibold text-gray-800">
@@ -60,7 +59,6 @@ function StaffOverviewPage() {
         </button>
       </div>
 
-      {/* Filters */}
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4 mb-4">
         <div className="text-xl font-semibold">
           Staff Information
@@ -99,12 +97,10 @@ function StaffOverviewPage() {
         </div>
       </div>
 
-      {/* Record Count */}
       <div className="text-sm text-gray-500 mb-2">
         Showing {currentStaff?.length || 0} of {filteredStaff.length} staff members
       </div>
 
-      {/* Table */}
       <div className="w-full overflow-x-auto bg-white !rounded-xl shadow-sm">
         <table className="min-w-[900px] w-full text-sm text-left">
           <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
@@ -163,7 +159,6 @@ function StaffOverviewPage() {
         </table>
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-6">
 

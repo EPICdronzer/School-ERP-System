@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Mathematics",
+    "code": "MATH101",
+    "teacher": "Mr. Sharma",
+    "classes": ["Class 9-A", "Class 9-B", "Class 10-A"],
+    "weeklyHours": 6
+  },
+  {
+    "id": 2,
+    "name": "Physics",
+    "code": "PHY102",
+    "teacher": "Ms. Gupta",
+    "classes": ["Class 10-A", "Class 10-B"],
+    "weeklyHours": 5
+  }
+]

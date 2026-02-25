@@ -7,6 +7,7 @@ import AdminLandingPage from "./AdminLook/AdminLandingPage";
 import TeacherOverviewPage from "./pages/TeacherOverviewPage";
 import SaffOverviewPage from "./pages/SaffOverviewPage";
 import ClassAndSectionOverview from "./pages/ClassAndSectionOverview";
+import SubjectManagementPage from "./pages/SubjectManagementPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="teachers" element={<TeacherOverviewPage />} />
           <Route path="staff" element={<SaffOverviewPage />} />
           <Route path="class" element={<ClassAndSectionOverview />} />
+          <Route path="subject" element={<SubjectManagementPage />} />
         </Route>
 
         <Route path="*" element={<h1>Error Wrong URL</h1>} />
