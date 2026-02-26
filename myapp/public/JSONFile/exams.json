@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Midterm Exam",
+    "class": "Class 10",
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-25",
+    "totalMarks": 500
+  },
+  {
+    "id": 2,
+    "name": "Final Exam",
+    "class": "Class 9",
+    "startDate": "2026-12-10",
+    "endDate": "2026-12-22",
+    "totalMarks": 600
+  }
+]

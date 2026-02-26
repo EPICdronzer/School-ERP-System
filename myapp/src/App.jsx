@@ -8,6 +8,8 @@ import TeacherOverviewPage from "./pages/TeacherOverviewPage";
 import SaffOverviewPage from "./pages/SaffOverviewPage";
 import ClassAndSectionOverview from "./pages/ClassAndSectionOverview";
 import SubjectManagementPage from "./pages/SubjectManagementPage";
+import ExamManagementPage from "./components/ExamManagementPage";
+import ResultManagementPage from "./components/ResultManagementPage";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="staff" element={<SaffOverviewPage />} />
           <Route path="class" element={<ClassAndSectionOverview />} />
           <Route path="subject" element={<SubjectManagementPage />} />
+          <Route path="exam" element={<ExamManagementPage />} />
+          <Route path="result" element={<ResultManagementPage />} />
         </Route>
 
         <Route path="*" element={<h1>Error Wrong URL</h1>} />
