@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "class": "Class 9",
+    "tuitionFee": 25000,
+    "examFee": 3000,
+    "libraryFee": 1500,
+    "transportFee": 8000
+  },
+  {
+    "id": 2,
+    "class": "Class 10",
+    "tuitionFee": 28000,
+    "examFee": 3500,
+    "libraryFee": 1500,
+    "transportFee": 9000
+  }
+]

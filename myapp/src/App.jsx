@@ -10,6 +10,8 @@ import ClassAndSectionOverview from "./pages/ClassAndSectionOverview";
 import SubjectManagementPage from "./pages/SubjectManagementPage";
 import ExamManagementPage from "./components/ExamManagementPage";
 import ResultManagementPage from "./components/ResultManagementPage";
+import FeeManagementPage from "./components/FeeManagementPage";
+import SettingsProfilePage from "./components/SettingsProfilePage";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
           <Route path="subject" element={<SubjectManagementPage />} />
           <Route path="exam" element={<ExamManagementPage />} />
           <Route path="result" element={<ResultManagementPage />} />
+          <Route path="fee" element={<FeeManagementPage />} />
+          <Route path="settings" element={<SettingsProfilePage />} />
         </Route>
 
         <Route path="*" element={<h1>Error Wrong URL</h1>} />

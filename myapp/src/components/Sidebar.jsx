@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-import { FaBars, FaHome, FaChartBar, FaUsers, FaCog, FaUserGraduate, FaUserTie, FaChalkboardTeacher, FaChalkboard, FaBookOpen, FaTrophy, FaClipboardList  } from "react-icons/fa";
+import { FaBars, FaHome, FaChartBar, FaUsers, FaCog, FaUserGraduate, FaUserTie, FaChalkboardTeacher, FaChalkboard, FaBookOpen, FaTrophy, FaClipboardList, FaRupeeSign  } from "react-icons/fa";
 
 export default function Sidebar({ collapsed, setCollapsed }) {
   const location = useLocation();
@@ -88,6 +88,14 @@ export default function Sidebar({ collapsed, setCollapsed }) {
             text="Result"
             collapsed={collapsed}
             path="/admin/result"
+            currentPath={location.pathname}
+          />
+
+          <Item
+            icon={<FaRupeeSign />}
+            text="Fee"
+            collapsed={collapsed}
+            path="/admin/fee"
             currentPath={location.pathname}
           />
 
